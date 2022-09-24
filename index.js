@@ -30,10 +30,11 @@ app.get('/', (req,res) =>{
 
 //entregar uma porta
 
-
+const DB_USER = process.env.DB_USER
+const DB_PASSWORD = encodeURIComponent(process.env.DB_PASSWORD)
 
 mongoose.connect(
-    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@apicluster.qnetquf.mongodb.net/bancodaapi?retryWrites=true&w=majority`
+    `mongodb+srv://${DB_USER}:${DB_PASSWORD}@apicluster.qnetquf.mongodb.net/bancodaapi?retryWrites=true&w=majority`
     )
 .then(() =>{
     console.log("Conectamos ao MongoDB!")
